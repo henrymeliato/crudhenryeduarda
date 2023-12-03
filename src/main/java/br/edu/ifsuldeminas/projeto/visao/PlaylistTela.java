@@ -9,9 +9,12 @@ import java.util.List;
 import javax.swing.JList;
 import javax.swing.ListModel;
 
+import br.edu.ifsuldeminas.projeto.dao.ArtistaDAO;
+import br.edu.ifsuldeminas.projeto.dao.MusicaDAO;
 import br.edu.ifsuldeminas.projeto.dao.PlaylistDAO;
+import br.edu.ifsuldeminas.projeto.modelo.Artista;
 import br.edu.ifsuldeminas.projeto.modelo.Musica;
-
+ 
 /**
  *
  * @author hmaga
@@ -134,7 +137,19 @@ public class PlaylistTela extends javax.swing.JFrame{
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jList1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jList1FocusGained
-        // TODO add your handling code here:
+        List<Musica> listaMusicas = new PlaylistDAO().getMusicas();
+
+
+        String things[] = new String[listaMusicas.size()];
+        int x = 0;
+        while (x < listaMusicas.size()) {
+            
+            things[x] = listaMusicas.get(x).getTitulo();
+
+            x++;
+        }
+        
+        jList1.setModel(new javax.swing.DefaultComboBoxModel(things));
     }//GEN-LAST:event_jList1FocusGained
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
