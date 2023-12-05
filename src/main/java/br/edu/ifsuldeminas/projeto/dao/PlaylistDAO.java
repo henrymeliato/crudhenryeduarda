@@ -29,10 +29,28 @@ public class PlaylistDAO {
 
             }
 
+            ps.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }       
 
         return listaMusicas;
     }
+
+    public void deleteMusic(String nameMusic) {
+        String sql = "DELETE FROM Musica WHERE titulo=?";
+
+        try {
+            PreparedStatement ps = Conexao.getConexao().prepareStatement(sql);
+            ps.setString(1, nameMusic);
+
+            ps.execute();
+            ps.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
