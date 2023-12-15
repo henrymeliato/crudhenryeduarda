@@ -8,7 +8,7 @@ public class Conexao {
     
     private static final String url = "jdbc:mysql://localhost:3306/crudhm?zeroDateTimeBehavior=convertToNull";
     private static final String user = "root";
-    private static final String password = "G91077747g";
+    private static final String password = "";
     
     private static Connection conn;
     
